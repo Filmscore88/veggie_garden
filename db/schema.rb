@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 6) do
+
+  create_table "farmers", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+  end
 
   create_table "gardens", force: :cascade do |t|
     t.string  "name"
     t.string  "planting_system"
-    t.integer "user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "password_digest"
+    t.integer "farmer_id"
   end
 
   create_table "vegetables", force: :cascade do |t|
