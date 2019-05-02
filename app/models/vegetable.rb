@@ -1,2 +1,3 @@
 class Vegetable < ActiveRecord::Base
-end 
+  belongs_to :garden
+end
