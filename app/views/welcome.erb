@@ -5,6 +5,15 @@
     <title>VeggieGarden</title>
     <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F37%2F2016%2F02%2F31223320%2F101074381.jpg&amp;w=500&amp;h=335&amp;c=sc&amp;poi=%5B275%2C275%5D&amp;q=85" alt="101074381	" title="101074381" style="width: 200px">
 
+    <body>
+      # If not logged in
+      #I want to have alink for CreateAccount pointing to '/farmer/create_account'
+      # I want to have a link for logging in pointing to '/login'
+
+      #If logged in
+      # I want to have a link to create a new garden '/garden/new'
+      #I want a the page to display the link to different gardens he may have <p>garden.name<a href= '/garden/:id'</p> In a clickable link that is the name of the garden. the get '/garden/:id' will erb :'farmers/show'
+      # I want a link to logout '/farmer/logout'
 
     <div class="content">
       <p>Welcome to the Sinatra Template! If you're seeing this page, then everything is working
