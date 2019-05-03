@@ -11,6 +11,6 @@ class ApplicationController < Sinatra::Base
 #helper methods go in this file
   get "/" do
     erb :welcome
-  end
 
+  end
 end
