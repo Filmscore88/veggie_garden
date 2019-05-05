@@ -1,27 +1,30 @@
 class FarmersController < ApplicationController
 
+
   get '/login' do
-    erb :'farmers/login'
+    if !session[params :id]
+    erb :'/login'
+    end
   end
 
   post '/login' do
-  farmer = Farmer.find_by(:username => params[:username])
-   if farmer && farmer.authenticate(params[:password])
-     session[:user_id] = user.id
-     redirect '/'
-   else
-     redirect to '/create_account'
-   end
+    login(params[:username], params[:password])
+    redirect '/gardens'
   end
 
   get '/create_account' do
-    "Hello Wolrd"
+
     erb :'farmers/new'
   end
 
-  post '/create_account' do
-    puts params
-  end
-
-
+  post '/farmers' do
+     @farmer=Farmer.new
+     @farmer.username= params[:username]
+     @farmer.password= params[:password]
+     if @farmer.save
+      redirect '/login'
+     else
+      erb :"farmers/new"
+     end
+   end
 end
