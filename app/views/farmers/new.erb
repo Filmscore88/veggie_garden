@@ -1,7 +1,7 @@
 
 <h1> Farmers</h1>
 <h2>Create Account</h2>
-
+<%="Please make sure both fields are entered." if @farmer && @farmer.errors.any?%>
 
 <form action="/farmers" method="post">
   <div>

@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 #helper methods go in this file
   get "/" do
-    erb :welcome
+    erb :index
   end
   helpers do
     def logged_in?
@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-     @current_user ||= Farmer.find_by(:user_id => session[:user_id]) if session[:user_id]
+     @current_user ||= Farmer.find_by(:username => session[:username]) if session[:username]
     end
 
     def login_sequence
@@ -38,7 +38,8 @@ class ApplicationController < Sinatra::Base
     end
 
     def log_out
-      session.clear
+      session.destroy
+      redirect '/'
     end
   end
 end
