@@ -1,7 +1,7 @@
 class FarmersController < ApplicationController
 
   get '/farmers/:id' do
-    #login_sequence
+    login_confirmation
     @farmer=Farmer.find(params[:id])
   #  if @farmer.id == current_user.id
       erb :'/farmers/show'
@@ -21,7 +21,7 @@ class FarmersController < ApplicationController
       redirect'/gardens'
   end
 
-  get '/register' do
+  get '/signup' do
     if !session[:farmer_id]
       erb :'farmers/new'
     else
@@ -34,7 +34,7 @@ class FarmersController < ApplicationController
     if @farmer.save
       redirect '/login'
     else
-      erb :'/farmers/new'
+      redirect '/signup'
     end
   end
 

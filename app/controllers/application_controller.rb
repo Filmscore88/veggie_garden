@@ -12,12 +12,17 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :index
   end
-  helpers do
 
+  helpers do
     def logged_in?
       !!current_user
     end
 
+    def current_user
+     @current_user ||= Farmer.find_by(:username => session[:username]) if session[:username]
+    end
+
+    
     def login(username, password)
       farmer= Farmer.find_by(:username => username)
       if  farmer && farmer.authenticate(password)
@@ -25,10 +30,6 @@ class ApplicationController < Sinatra::Base
       else
     	 redirect "/login"
       end
-    end
-
-    def current_user
-     @current_user ||= Farmer.find_by(:username => session[:username]) if session[:username]
     end
 
     def login_confirmation

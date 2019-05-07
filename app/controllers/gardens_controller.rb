@@ -6,12 +6,12 @@ class GardensController < ApplicationController
   end
 
   get '/gardens/new' do
-    login_sequence
+    login_confirmation
     erb :'/gardens/new'
   end
 
   get '/gardens/:id/edit' do
-    login_sequence
+    login_confirmation
 
     if garden= current_user.gardens.find_by(params[:id])
       erb :'/gardens/edit'
@@ -21,7 +21,7 @@ class GardensController < ApplicationController
   end
 
   patch '/gardens/:id' do
-    login_sequence
+    login_confirmation
     if !@garden=Garden.find(params[:id])
       "Entry #{@garden.id} not found"
       redirect '/gardens/:id/edit'
@@ -32,7 +32,7 @@ class GardensController < ApplicationController
   end
 
   get '/gardens/:id' do
-    login_sequence
+    login_confirmation
     @garden=Garden.find(params[:id])
     erb :'gardens/show'
   end
