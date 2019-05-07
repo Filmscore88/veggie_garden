@@ -6,12 +6,12 @@ class VegetablesController < ApplicationController
   end
 
   get '/vegetables/new' do
-    login_sequence
+    login_confirmation
     erb :'/vegetables/new'
   end
 
   get '/vegetables/:id/edit' do
-    login_sequence
+    login_confirmation
     if vegetable= current_user.gardens.vegetables.find_by(params[:id])
       erb :'/vegetables/edit'
     else
@@ -20,7 +20,7 @@ class VegetablesController < ApplicationController
   end
 
   patch '/vegetables/:id' do
-    login_sequence
+    login_confirmation
     @vegetable=Vegetable.find(params[:id])
     if !@vegetable
       "Entry #{@vegetable.id} not found"
@@ -32,7 +32,7 @@ class VegetablesController < ApplicationController
   end
 
   get '/vegetables/:id' do
-    login_sequence
+    login_confirmation
     @vegetable=Vegetable.find(params[:id])
     erb :'vegetables/show'
   end

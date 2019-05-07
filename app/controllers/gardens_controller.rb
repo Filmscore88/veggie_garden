@@ -26,7 +26,7 @@ class GardensController < ApplicationController
       "Entry #{@garden.id} not found"
       redirect '/gardens/:id/edit'
     else
-      @garden.update(name: params[:name], planting_system: [params[:planting_system])
+      @garden.update(name: params[:name], planting_system: params[:planting_system])
       redirect "/gardens/#{@garden.id}"
     end
   end
