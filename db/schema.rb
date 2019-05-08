@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 6) do
   create_table "vegetables", force: :cascade do |t|
     t.string  "name"
     t.integer "garden_id"
+    t.integer "quantity"
   end
 
 end

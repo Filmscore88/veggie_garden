@@ -1,0 +1,7 @@
+<h1>Your Vegetables</h1>
+<ul>
+  <% @vegetables.each do |veggie| %>
+    <li><%= veggie.name %></li>
+    <li><a href= "/vegetables/<%=veggie.id%>/edit">Edit</a></li>
+  <% end %>
+</ul>
