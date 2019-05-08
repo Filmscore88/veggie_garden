@@ -6,6 +6,6 @@ if ActiveRecord::Migrator.needs_migration?
 end
 use Rack::MethodOverride
 use GardensController
-use FarmersController
 use VegetablesController
+use FarmersController
 run ApplicationController

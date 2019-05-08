@@ -1,12 +1,20 @@
+
 class FarmersController < ApplicationController
 
-  get '/farmers/:id' do
-    login_confirmation
-    @farmer=Farmer.find(params[:id])
-  #  if @farmer.id == current_user.id
-      erb :'/farmers/show'
-    #end
+  get '/signup' do
+    if !session[:farmer_id]
+      erb :'farmers/new'
+    else
+      redirect '/gardens'
+    end
   end
+
+  post '/farmers' do
+    @farmer=Farmer.create(username: params[:username], password: params[:password])
+    session[:farmer_id]= @farmer.id
+    redirect '/gardens'
+  end
+
 
   get '/login' do
     if !session[:farmer_id]
@@ -18,27 +26,24 @@ class FarmersController < ApplicationController
 
   post '/login' do
     login(params[:username], params[:password])
-      redirect'/gardens'
+    redirect '/gardens'
   end
 
-  get '/signup' do
-    if !session[:farmer_id]
-      erb :'farmers/new'
+  get '/farmers/:id' do
+    if !logged_in?
+      redirect '/gardens'
+    end
+
+    @farmer = Farmer.find(params[:id])
+
+    if !@farmer.nil? && @farmer == current_user
+      erb :'farmers/show'
     else
       redirect '/gardens'
     end
   end
 
-  post '/farmers' do
-    @farmer=Farmer.new(username: params[:username], password: params[:password])
-    if @farmer.save
-      redirect '/login'
-    else
-      redirect '/signup'
-    end
-  end
-
    get '/logout' do
-       log_out
+     log_out
    end
 end

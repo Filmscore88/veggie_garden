@@ -1,1 +1,11 @@
 <h1>Gardens</h1>
+<h1><%=current_user.id%></h1>
+<h1><%=@farmbuddy%></h1>
+<%@farmer.each do |farmer|%>
+<div>
+  <%=farmer.destroy%>
+</div>
+<div>
+  <%=farmer.username%>
+</div>
+<%end%>

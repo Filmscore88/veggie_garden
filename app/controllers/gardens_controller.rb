@@ -1,8 +1,12 @@
+
 class GardensController < ApplicationController
 
   get '/gardens' do
-    @gardens=Garden.all
-    erb :'/gardens/index'
+
+    login_confirmation
+    @farmbuddy=session[:farmer_id]
+    @farmer=Farmer.all
+    erb :'gardens/index'
   end
 
   get '/gardens/new' do
