@@ -1,8 +1,10 @@
 <h1>My Gardens</h1>
 <ul>
   <% @my_gardens.each do |garden| %>
+
     <li><%= garden.name %></li>
     <li><%= garden.planting_system %></li>
-    <li><a href="/gardens/<%=garden.id%>/edit">Edit</a></li>
+    <li><%=garden.id%></li>
+    <li><a href= "/gardens/<%=garden.id%>/edit">Edit</a></li>
   <% end %>
 </ul>

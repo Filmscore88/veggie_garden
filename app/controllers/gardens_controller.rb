@@ -13,6 +13,7 @@ class GardensController < ApplicationController
   end
 
   get '/gardens/:id/edit' do
+
     login_confirmation
 
     if garden= current_user.gardens.find_by(params[:id])
@@ -40,11 +41,11 @@ class GardensController < ApplicationController
   end
 
   post '/gardens' do
-    @garden=Garden.new(name: params[:name], planting_system: params[:planting_system])
-    if @garden.save
-      redirect '/gardens/:id'
+    if @garden=Garden.create(params)
+      redirect '/gardens'
     else
-      erb :'/gardens/new'
+     erb :'/gardens/new'
+
     end
   end
 end
