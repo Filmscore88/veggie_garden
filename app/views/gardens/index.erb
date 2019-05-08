@@ -1,11 +1,8 @@
-<h1>Gardens</h1>
-<h1><%=current_user.id%></h1>
-<h1><%=@farmbuddy%></h1>
-<%@farmer.each do |farmer|%>
-<div>
-  <%=farmer.destroy%>
-</div>
-<div>
-  <%=farmer.username%>
-</div>
-<%end%>
+<h1>My Gardens</h1>
+<ul>
+  <% @my_gardens.each do |garden| %>
+    <li><%= garden.name %></li>
+    <li><%= garden.planting_system %></li>
+    <li><a href="/gardens/<%=garden.id%>/edit">Edit</a></li>
+  <% end %>
+</ul>
