@@ -1,35 +1,6 @@
 
-helpers do
-    def logged_in?
-      !!current_user
-    end
-
-    def current_user
-     @current_user ||= Farmer.find_by(:id => session[:farmer_id]) if session[:farmer_id]
-    end
-
-
-    def login(username, password)
-      farmer= Farmer.find_by(:username => username)
-
-      if  farmer && farmer.authenticate(password)
-    	   session[:farmer_id] = farmer.id
-      end
-    end
-
-    def login_confirmation
-      if !logged_in?
-        redirect '/login'
-      end
-    end
-
-    def log_out
-      if session[:farmer_id] !=nil
-        session.destroy
-        redirect '/login'
-      else
-        redirect '/'
-      end
-    end
-  end
-end
+celeriac/carrot/cabbage/brussels_sprouts/broccoli_raab/broccoli
+/bell_pepper/beet/green_beans/asparagus/asian_greens/arugula/artichoke
+amaranth/winter_squash/watermelon/turnip/tomato/tomatillo/sweet_potato/summer_squash
+spinach/rutabaga/rhubarb/radish/pumpkin/radicchio/peanut/pea/parsnip/onion/okra/newzealand_spinach/
+melon/lima_bean/malabar_spinach/leek/lettuce/kohlrabi/kale

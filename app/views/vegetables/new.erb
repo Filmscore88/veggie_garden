@@ -1,1 +1,50 @@
 <%="Please make sure all fields are entered correctly." if @vegetalbe && @vegetalbe.errors.any?%>
+<h1>Choose Your Vegetables</h1>
+
+
+<form action= "/vegetables" method="post">
+  <label>Choose Your Vegetables</label>
+  <ul>
+    <li><input type="radio" name="name" value="celeriac">Celeriac</li>
+    <li><input type="radio" name="name" value="carrot">Carrot</li>
+    <li><input type="radio" name="name" value="cabbage">Cabbage</li>
+    <li><input type="radio" name="name" value="broccoli_raab">Broccoli Raab</li>
+    <li><input type="radio" name="name" value="broccoli">Broccoli</li>
+    <li><input type="radio" name="name" value="bell_pepper">Bell Pepper</li>
+    <li><input type="radio" name="name" value="beet">Beet</li>
+    <li><input type="radio" name="name" value="green_beans">Green Beans</li>
+    <li><input type="radio" name="name" value="asparagus">Asparagus</li>
+    <li><input type="radio" name="name" value="asian_greens">Asian Greens</li>
+    <li><input type="radio" name="name" value="arugula">Arugula</li>
+    <li><input type="radio" name="name" value="artichoke">Artichoke</li>
+    <li><input type="radio" name="name" value="amaranth">Amaranth</li>
+    <li><input type="radio" name="name" value="watermelon">Watermelon</li>
+    <li><input type="radio" name="name" value="turnip">Turnip</li>
+    <li><input type="radio" name="name" value="tomato">Tomato</li>
+    <li><input type="radio" name="name" value="tomatillo">Tomatillo</li>
+    <li><input type="radio" name="name" value="sweet_potato">Sweet Potato</li>
+    <li><input type="radio" name="name" value="summer_squash">Summer Squash</li>
+    <li><input type="radio" name="name" value="spinach">Spinach</li>
+    <li><input type="radio" name="name" value="rutabaga">Rutabaga</li>
+    <li><input type="radio" name="name" value="rhubarb">Rhubarb</li>
+    <li><input type="radio" name="name" value="radish">Radish</li>
+    <li><input type="radio" name="name" value="pumpkin">Pumpkin</li>
+    <li><input type="radio" name="name" value="radicchio">Radicchio</li>
+    <li><input type="radio" name="name" value="peanut">Peanut</li>
+    <li><input type="radio" name="name" value="pea">Pea</li>
+    <li><input type="radio" name="name" value="parsnip">Parsnip</li>
+    <li><input type="radio" name="name" value="onion">Onion</li>
+    <li><input type="radio" name="name" value="okra">Okra</li>
+    <li><input type="radio" name="name" value="newzealand_spinach">New Zealand Spinach</li>
+    <li><input type="radio" name="name" value="melon">Melon</li>
+    <li><input type="radio" name="name" value="lima_bean">Lima Bean</li>
+    <li><input type="radio" name="name" value="malabar_spinach">Malabar Spinach</li>
+    <li><input type="radio" name="name" value="leek">Leek</li>
+    <li><input type="radio" name="name" value="lettuce">Lettuce</li>
+    <li><input type="radio" name="name" value="kohlrabi">Kohlrabi</li>
+    <li><input type="radio" name="name" value="kale">Kale</li>
+  </ul>
+  <label>Please Select Quantity:</label>
+    <input type= "text" name="quantity">
+  <input type="submit" value="submit">
+</form>
