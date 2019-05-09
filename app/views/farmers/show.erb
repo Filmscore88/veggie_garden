@@ -1,3 +1,7 @@
-<h1>Welcome to your farm!</h1>
-
-<%=current_user.username%>
+<h1>Welcome to your farm! <%=@farmer.username%></h1>
+<h2>Your gardens</h2>
+<% @farmer.gardens.each do |garden| %>
+  <ul>
+    <li><a href="/gardens/<%=garden.id%>"><%= garden.name %></a></li>
+  </ul>
+<% end %>

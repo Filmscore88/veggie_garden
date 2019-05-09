@@ -13,21 +13,21 @@ class VegetablesController < ApplicationController
 
   get '/vegetables/:id/edit' do
     login_confirmation
-    if vegetable= current_user.gardens.vegetables.find_by(params[:id])
-      erb :'/vegetables/edit'
-    else
-      redirect '/vegetables'
-    end
+    @vegetable= Vegetable.find(params[:id])
+    erb :'/vegetables/edit'
   end
 
   patch '/vegetables/:id' do
+
     login_confirmation
     @vegetable=Vegetable.find(params[:id])
+
     if !@vegetable
       "Entry #{@vegetable.id} not found"
       redirect '/vegetables/:id/edit'
     else
-      @vegetable.update(name: params[:name])
+      @vegetable.update(name: params[:name], quantity: params[:quantity], garden_id: params[:garden_id])
+      #@club.update(params.select{|k|k=="name" || k=="manufacturer" || k=="golf_bag_id"})
       redirect "/vegetables/#{@vegetable.id}"
     end
   end

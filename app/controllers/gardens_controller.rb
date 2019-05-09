@@ -3,7 +3,7 @@ class GardensController < ApplicationController
 
   get '/gardens' do
     login_confirmation
-    @my_gardens=Garden.all
+    @gardens=Garden.all
     erb :'gardens/index'
   end
 
@@ -11,7 +11,7 @@ class GardensController < ApplicationController
     login_confirmation
     erb :'/gardens/new'
   end
-
+#Make sure to include the list of radio buttons on the /gardens/edit form
   get '/gardens/:id/edit' do
     login_confirmation
     @garden= Garden.find(params[:id])
@@ -36,11 +36,12 @@ class GardensController < ApplicationController
   end
 
   post '/gardens' do
-    if @garden=Garden.create(params)
+    login_confirmation
+    @garden=Garden.create(params)
+    if current_user.gardens << @garden
       redirect '/gardens'
     else
      erb :'/gardens/new'
-
     end
   end
 end

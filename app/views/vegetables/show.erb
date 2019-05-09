@@ -1,0 +1,12 @@
+
+<div>
+<%= @vegetable.name%>
+</div>
+<div>
+<%= @vegetable.quantity%>
+</div>
+
+In garden:<a href="/gardens/<%=@vegetable.garden.id%>"><%= @vegetable.garden.name %></a>
+  <a href="/vegetables/<%=@vegetable.id%>/edit">Edit</a>
+  <br />
+  <br />
