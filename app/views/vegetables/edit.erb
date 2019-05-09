@@ -1,0 +1,10 @@
+<h1>Modify your <%=@garden.name%> garden</h1>
+
+<form action="/gardens/<%=@garden.id%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+    <h2>Garden Name:</h2>
+      <input type="text" name="name" value="<%=@garden.name %>">
+    <h2>Planting System:</h2>
+      <input type= "text" name="planting_system" value="<%=@garden.planting_system%>">
+      <input type="submit" value="Update">
+</form>

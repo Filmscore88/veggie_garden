@@ -1,6 +1,7 @@
 class VegetablesController < ApplicationController
 
   get '/vegetables' do
+    login_confirmation
     @vegetables=Vegetable.all
     erb :'/vegetables/index'
   end
@@ -38,9 +39,8 @@ class VegetablesController < ApplicationController
   end
 
   post '/vegetables' do
-    @vegetable=Vegetable.new(name: params[:name])
-    if @vegetable.save
-      redirect '/vegetables/:id'
+    if @vegetable=Vegetable.create(params)
+      redirect '/vegetables'
     else
       erb :'/vegetables/new'
     end

@@ -13,14 +13,9 @@ class GardensController < ApplicationController
   end
 
   get '/gardens/:id/edit' do
-
     login_confirmation
-
-    if garden= current_user.gardens.find_by(params[:id])
+    @garden= Garden.find(params[:id])
       erb :'/gardens/edit'
-    else
-      redirect '/gardens'
-    end
   end
 
   patch '/gardens/:id' do
