@@ -5,8 +5,7 @@
   <ul>
   <% @garden.vegetables.each do |veggie| %>
     <li><a href="/vegetables/<%=veggie.id%>"><%= veggie.name %></a></li>
-  <% end%>
-  </ul>
-  <a href="/gardens/<%=@garden.id%>/edit">Edit</a>
+    <a href="/gardens/<%=@garden.id%>/edit">Edit</a>
+  <%end%>
   <br />
   <br />

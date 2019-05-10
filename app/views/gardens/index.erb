@@ -5,6 +5,8 @@
     <li><%= garden.name %></li>
     <li><%= garden.planting_system %></li>
     <li><%=garden.id%></li>
-    <li><a href= "/gardens/<%=garden.id%>/edit">Edit</a></li>
+    <% if garden.farmer_id == current_user.id %>
+      <li><a href= "/gardens/<%=garden.id%>/edit">Edit</a></li>
+    <%end%>
   <% end %>
 </ul>
