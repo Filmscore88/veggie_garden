@@ -3,9 +3,47 @@
 <form action="/vegetables/<%=@vegetable.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
     <div>
-    <label> Vegetable Name </label>
-    <input type="text" name="name" value="<%=@vegetable.name %>">
-    </div>
+    <label> Select new vegetable </label>
+    <select name="name">
+      <option value="celeriac">Celeriac</option>
+      <option value="carrot">Carrot</option>
+      <option value="cabbage">Cabbage</option>
+      <option value="broccoli_raab">Broccoli Raab</option>
+      <option value="broccoli">Broccoli</option>
+      <option value="bell_pepper">Bell Pepper</option>
+      <option value="beet">Beet</option>
+      <option value="green_beans">Green Beans</option>
+      <option value="asparagus">Asparagus</option>
+      <option value="asian_greens">Asian Greens</option>
+      <option value="arugula">Arugula</option>
+      <option value="artichoke">Artichoke</option>
+      <option value="amaranth">Amaranth</option>
+      <option value="watermelon">Watermelon</option>
+      <option value="turnip">Turnip</option>
+      <option value="tomato">Tomato</option>
+      <option value="tomatillo">Tomatillo</option>
+      <option value="sweet_potato">Sweet Potato</option>
+      <option value="summer_squash">Summer Squash</option>
+      <option value="spinach">Spinach</option>
+      <option value="rutabaga">Rutabaga</option>
+      <option value="rhubarb">Rhubarb</option>
+      <option value="radish">Radish</option>
+      <option value="pumpkin">Pumpkin</option>
+      <option value="radicchio">Radicchio</option>
+      <option value="peanut">Peanut</option>
+      <option value="pea">Pea</option>
+      <option value="parsnip">Parsnip</option>
+      <option value="onion">Onion</option>
+      <option value="okra">Okra</option>
+      <option value="newzealand_spinach">New Zealand Spinach</option>
+      <option value="melon">Melon</option>
+      <option value="lima_bean">Lima Bean</option>
+      <option value="malabar_spinach">Malabar Spinach</option>
+      <option value="leek">Leek</option>
+      <option value="lettuce">Lettuce</option>
+      <option value="kohlrabi">Kohlrabi</option>
+      <option value="kale">Kale</option>
+    </select>
     <div>
       <label> Quantity </label>
       <input type="text" name="quantity" value="<%=@vegetable.quantity%>">
