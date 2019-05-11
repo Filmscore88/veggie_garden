@@ -3,6 +3,11 @@
   <% @vegetables.each do |veggie| %>
     <li><%= veggie.name %></li>
     <li><%= veggie.quantity%></li>
-    <li><a href= "/vegetables/<%=veggie.id%>/edit">Edit</a></li>
-  <% end %>
+
+      <%current_user.gardens.each do |garden|%>
+        <%if veggie.garden_id == garden.id%>
+        <li><a href= "/vegetables/<%=veggie.id%>/edit">Edit</a></li>
+       <%end%>
+    <%end%>
+  <%end%>
 </ul>

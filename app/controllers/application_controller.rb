@@ -37,6 +37,7 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
+
     def log_out
       if session[:farmer_id] != nil
         session.destroy

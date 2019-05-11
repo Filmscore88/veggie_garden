@@ -5,7 +5,10 @@
   <ul>
   <% @garden.vegetables.each do |veggie| %>
     <li><a href="/vegetables/<%=veggie.id%>"><%= veggie.name %></a></li>
-    <a href="/gardens/<%=@garden.id%>/edit">Edit</a>
+      <% if @garden.farmer_id == current_user.id%>
+      <a href="/gardens/<%=@garden.id%>/edit">Edit</a>
+      <%end%>
   <%end%>
+
   <br />
   <br />

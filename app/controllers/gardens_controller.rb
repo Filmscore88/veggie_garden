@@ -15,7 +15,12 @@ class GardensController < ApplicationController
   get '/gardens/:id/edit' do
     login_confirmation
     @garden= Garden.find(params[:id])
+
+    if @garden.farmer_id == current_user.id
       erb :'/gardens/edit'
+      else
+        redirect '/gardens'
+    end
   end
 
   patch '/gardens/:id' do
