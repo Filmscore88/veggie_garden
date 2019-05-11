@@ -8,7 +8,11 @@ class VegetablesController < ApplicationController
 
   get '/vegetables/new' do
     login_confirmation
-    erb :'/vegetables/new'
+    if @gardens=current_user.gardens
+      erb :'/vegetables/new'
+    else
+      redirect '/gardens/new'
+    end
   end
 
   get '/vegetables/:id/edit' do
@@ -44,6 +48,7 @@ class VegetablesController < ApplicationController
   end
 
   post '/vegetables' do
+  
     if @vegetable=Vegetable.create(params)
       redirect '/vegetables'
     else

@@ -46,5 +46,11 @@
   </ul>
   <label>Please Select Quantity:</label>
     <input type= "text" name="quantity">
+  <label> Choose Garden Location</label>
+    <select name="garden_id">
+      <% @gardens.each do |garden| %>
+        <option value=<%=garden.id %>><%= garden.name %></option>
+      <% end %>
+    </select>
   <input type="submit" value="submit">
 </form>
