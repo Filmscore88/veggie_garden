@@ -6,7 +6,7 @@
 <%= @vegetable.quantity%>
 </div>
 <%if current_user.vegetable_ids.include?(@vegetable.id)%>
-<form method="post" action="/vegetables/<%= @gvegetable.id %>/delete">
+<form method="post" action="/vegetables/<%= @vegetable.id %>/delete">
 <input id="hidden" type="hidden" name="_method" value="DELETE">
 <input type="submit" value="delete">
 </form>

@@ -1,12 +1,40 @@
-<h1>All Gardens</h1>
-<ul>
-  <% @gardens.each do |garden| %>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-    <li><%= garden.name %></li>
-    <li><%= garden.planting_system %></li>
-    <li><%=garden.id%></li>
-    <% if garden.farmer_id == current_user.id %>
-      <li><a href= "/gardens/<%=garden.id%>/edit">Edit</a></li>
-    <%end%>
-  <% end %>
-</ul>
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+
+<h2> Gardens</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Planting System</th>
+    <th>Link</th>
+  </tr>
+  <%@gardens.each do |garden|%>
+  <tr>
+    <td><%=garden.name%></td>
+    <td><%=garden.planting_system%></td>
+    <td><a href= "/gardens/<%=garden.id%>">View</a></td>
+  <%end%>
+  </tr>
+</table>
+</body>
+</html>

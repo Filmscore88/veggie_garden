@@ -1,20 +1,54 @@
-  <%= @garden.name %><br />
-  <%= @garden.planting_system %> <br />
-  <%if current_user.garden_ids.include?(@garden.id)%>
-  <form method="post" action="/gardens/<%= @garden.id %>/delete">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="delete">
-  </form>
-  <%end%>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-  <h2>Vegetables</h2>
-  <ul>
-  <% @garden.vegetables.each do |veggie| %>
-    <li><a href="/vegetables/<%=veggie.id%>"><%= veggie.name %></a></li>
-      <% if @garden.farmer_id == current_user.id%>
-      <a href="/gardens/<%=@garden.id%>/edit">Edit</a>
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+  <h2><%=@garden.name.titleize%> Garden</h2>
+  <h2><%=@garden.planting_system.titleize%> Planting System</h2>
+
+  <% if @garden.vegetables.empty? %>
+    <h3> <%=@garden.name%> does not have any vegetables at the moment.</h3>
+  <%else%>
+    <h3>Vegetables</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Link</th>
+      </tr>
+      <%@garden.vegetables.each do |vegetable|%>
+      <tr>
+        <td><%=vegetable.name%></td>
+        <td><%=vegetable.quantity%></td>
+        <td><a href= "/vegetables/<%=vegetable.id%>">View</a></td>
       <%end%>
-  <%end%>
+      </tr>
+    </table>
+    <%end%>
 
-  <br />
-  <br />
+    <% if current_user.garden_ids.include?(@garden.id)%>
+      <a href="/gardens/<%=@garden.id%>/edit">Edit</a>
+      <form method="post" action="/gardens/<%= @garden.id %>/delete">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <input type="submit" value= "delete">
+      </form>
+    <%end%>
+</body>
+</html>
