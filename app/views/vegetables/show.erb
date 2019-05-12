@@ -1,22 +1,16 @@
 
-<div>
-<%= @vegetable.name%>
-</div>
-<div>
-<%= @vegetable.quantity%>
-</div>
-<%if current_user.vegetable_ids.include?(@vegetable.id)%>
-<form method="post" action="/vegetables/<%= @vegetable.id %>/delete">
-<input id="hidden" type="hidden" name="_method" value="DELETE">
-<input type="submit" value="delete">
-</form>
-<%end%>
 
-In garden:<a href="/gardens/<%=@vegetable.garden.id%>"><%= @vegetable.garden.name %></a>
-  <% current_user.gardens.each do |garden| %>
-    <% if @vegetable.garden_id == garden.id%>
-      <a href="/vegetables/<%=@vegetable.id%>/edit">Edit</a>
-    <%end%>
-  <%end%>
-  <br />
-  <br />
+<h3>Vegetable: <%= @vegetable.name.titleize%></h3>
+
+<h3>Quantitiy: <%= @vegetable.quantity%></h3>
+
+<h3>Garden:<a href="/gardens/<%=@vegetable.garden.id%>"><%= @vegetable.garden.name.titleize %></a></h3>
+
+<%if current_user.vegetable_ids.include?(@vegetable.id)%>
+  <a href="/vegetables/<%=@vegetable.id%>/edit">Edit</a>
+
+  <form method="post" action="/vegetables/<%= @vegetable.id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete">
+  </form>
+<%end%>

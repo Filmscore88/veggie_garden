@@ -21,7 +21,7 @@ tr:nth-child(even) {
 <body>
 
   <h2><%=@garden.name.titleize%> Garden</h2>
-  <h2><%=@garden.planting_system.titleize%> Planting System</h2>
+  <h3><%=@garden.planting_system.titleize%> Planting System</h3>
 
   <% if @garden.vegetables.empty? %>
     <h3> <%=@garden.name%> does not have any vegetables at the moment.</h3>
