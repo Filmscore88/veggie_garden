@@ -47,8 +47,16 @@ class VegetablesController < ApplicationController
     erb :'vegetables/show'
   end
 
+  delete '/vegetables/:id/delete' do
+    login_confirmation
+    @vegetable=Vegetable.find(params[:id])
+    @vegetable.delete
+    redirect '/vegetables'
+  end
+
+
   post '/vegetables' do
-  
+
     if @vegetable=Vegetable.create(params)
       redirect '/vegetables'
     else
