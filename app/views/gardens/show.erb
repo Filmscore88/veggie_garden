@@ -1,5 +1,11 @@
-<%= @garden.name %><br />
+  <%= @garden.name %><br />
   <%= @garden.planting_system %> <br />
+  <%if current_user.garden_ids.include?(@garden.id)%>
+  <form method="post" action="/gardens/<%= @garden.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="delete">
+  </form>
+  <%end%>
 
   <h2>Vegetables</h2>
   <ul>
