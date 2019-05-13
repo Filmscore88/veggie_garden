@@ -1,4 +1,3 @@
-<%="Please make sure all fields are entered correctly." if @garden && @garden.errors.any?%>
 <h1>Choose a new garden</h1>
 
 
@@ -9,22 +8,22 @@
   </div>
 
   <div>
-    <label>Planting System</label>
-      <div>
-        <input type="radio" name="planting_system" value="traditional">Traditional
-      </div>
-      <div>
-        <input type="radio" name="planting_system" value="permaculture">Permaculture
-      </div>
-      <div>
-        <input type="radio" name="planting_system" value="no_dig">No Dig
-       </div>
-       <div>
-         <input type="radio" name="planting_system" value="raised_beds">Raised Beds
-       </div>
-       <div>
-         <input type="radio" name="planting_system" value="square_foot_gardening">Square Foot Gardening
-       </div>
+  <label>Planting System</label>
+    <div>
+      <input type="radio" name="planting_system" value="traditional">Traditional
+    </div>
+    <div>
+      <input type="radio" name="planting_system" value="permaculture">Permaculture
+    </div>
+    <div>
+      <input type="radio" name="planting_system" value="no_dig">No Dig
+    </div>
+    <div>
+      <input type="radio" name="planting_system" value="raised_beds">Raised Beds
+    </div>
+    <div>
+      <input type="radio" name="planting_system" value="square_foot_gardening">Square Foot Gardening
+    </div>
     <input type="submit" value="Create">
   </div>
 </form>

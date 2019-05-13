@@ -4,13 +4,15 @@
 
 <h3>Quantitiy: <%= @vegetable.quantity%></h3>
 
-<h3>Garden:<a href="/gardens/<%=@vegetable.garden.id%>"><%= @vegetable.garden.name.titleize %></a></h3>
+<h3>From garden: <a href="/gardens/<%=@vegetable.garden.id%>"><%= @vegetable.garden.name.titleize %></a></h3>
+
+<h3>Farmer: <%= @vegetable.garden.farmer.username.titleize%></h3>
 
 <%if current_user.vegetable_ids.include?(@vegetable.id)%>
   <a href="/vegetables/<%=@vegetable.id%>/edit">Edit</a>
 
   <form method="post" action="/vegetables/<%= @vegetable.id %>/delete">
     <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete">
+    <button type="submit" class="btn btn-link" onclick="if (!confirm('ARE YOU SURE YOU WANT TO DELETE?')) { return false }"><span>Delete</span></button>
   </form>
 <%end%>

@@ -8,10 +8,11 @@ class VegetablesController < ApplicationController
 
   get '/vegetables/new' do
     login_confirmation
-    if @gardens=current_user.gardens
-      erb :'/vegetables/new'
-    else
+    if current_user.gardens.empty?
       redirect '/gardens/new'
+    else
+      @gardens=current_user.gardens 
+      erb :'/vegetables/new'
     end
   end
 
