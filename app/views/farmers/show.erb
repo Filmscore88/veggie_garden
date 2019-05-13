@@ -1,9 +1,7 @@
 
 <h2>My Gardens</h2>
 <% if current_user.gardens.empty?%>
-<p> You do not have any gardens in your collection.
-  <a href="/gardens/new">Create Garden</a>
-</p>
+  You do not have any gardens in your collection.
 <%end%>
 <ul>
   <%@farmer.gardens.each do |garden| %>

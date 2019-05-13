@@ -26,9 +26,10 @@
     <%end%>
 
     <% if current_user.garden_ids.include?(@garden.id)%>
-      <a href="/gardens/<%=@garden.id%>/edit">Edit</a>
+      <a href="/gardens/<%=@garden.id%>/edit" class="btn btn-primary btn-xs" role="button">Edit</a>
+
       <form method="post" action="/gardens/<%= @garden.id %>/delete">
         <input id="hidden" type="hidden" name="_method" value="DELETE">
-        <button type="submit" class="btn btn-link" onclick="if (!confirm('ANY VEGETABLES IN THIS GARDEN WILL BE DELETED!')) { return false }"><span>Delete</span></button>
+        <button type="submit" class= "btn btn-primary btn-xs" onclick="if (!confirm('ANY VEGETABLES IN THIS GARDEN WILL BE DELETED!')) { return false }"><span>Delete</span></button>
       </form>
     <%end%>

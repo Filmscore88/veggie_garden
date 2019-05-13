@@ -9,10 +9,10 @@
 <h3>Farmer: <%= @vegetable.garden.farmer.username.titleize%></h3>
 
 <%if current_user.vegetable_ids.include?(@vegetable.id)%>
-  <a href="/vegetables/<%=@vegetable.id%>/edit">Edit</a>
+  <a href="/vegetables/<%=@vegetable.id%>/edit" class="btn btn-primary btn-xs" role="button">Edit</a>
 
   <form method="post" action="/vegetables/<%= @vegetable.id %>/delete">
     <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <button type="submit" class="btn btn-link" onclick="if (!confirm('ARE YOU SURE YOU WANT TO DELETE?')) { return false }"><span>Delete</span></button>
+    <button type="submit" class="btn btn-primary btn-xs" onclick="if (!confirm('ARE YOU SURE YOU WANT TO DELETE?')) { return false }"><span>Delete</span></button>
   </form>
 <%end%>
