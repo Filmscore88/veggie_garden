@@ -22,19 +22,19 @@ tr:nth-child(even) {
 
 
 <h2> Vegetables</h2>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Quantity</th>
-    <th>Link</th>
-  </tr>
-  <%@vegetables.each do |vegetable|%>
-  <tr>
-    <td><%=vegetable.name%></td>
-    <td><%=vegetable.quantity%></td>
-    <td><a href= "/vegetables/<%=vegetable.id%>">View</a></td>
-  <%end%>
-  </tr>
-</table>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Link</th>
+    </tr>
+    <%@vegetables.each do |vegetable|%>
+    <tr>
+      <td><%=vegetable.name%></td>
+      <td><%=vegetable.quantity%></td>
+      <td><a href= "/vegetables/<%=vegetable.id%>">View</a></td>
+    <%end%>
+    </tr>
+  </table>
 </body>
 </html>

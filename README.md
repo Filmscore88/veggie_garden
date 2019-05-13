@@ -1,8 +1,7 @@
-
-# I want the gardens index page to show all gardens and be able to view all of the gardens show page.
-# In the vegetable show page i want to have basic info about each vegetable, along with a picture
-# USE THE current_user.garden_ids, or current_user.vegetable_ids method !!!!!
-
+# make sure input type in quantity for vegetables is only a number
+# I have a banner across current_user for every page with logout/homepage(gardens)/create new garden/create new vegetables etc>
+# FIX garden show page, when no vegetables at the moment does not show edit/delete
+# gardens edit page should have link to add vegetables/new
 # Home Page:
 #    If logged in:
 #    <% if logged_in? %>
@@ -16,9 +15,4 @@
 #       <a href="/signup">Sign Up</a>
 #       <a href="/login"> Sign In </a>
 #     <%end %>
-
-
-# Farmer :id page:
-
-#2- In farmers/:id
-#  <a href= "/vegetables/new"> Add new Vegetables to My Garden</a>
+  <input type="submit" value= "delete">

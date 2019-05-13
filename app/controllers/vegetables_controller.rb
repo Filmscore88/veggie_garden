@@ -56,11 +56,11 @@ class VegetablesController < ApplicationController
 
 
   post '/vegetables' do
-
-    if @vegetable=Vegetable.create(params)
-      redirect '/vegetables'
-    else
-      erb :'/vegetables/new'
-    end
-  end
+    unless params[:quantity].to_i > 0
+      redirect '/vegetables/new? error=invalid number'
+     else
+       @vegetable=Vegetable.create(params)
+       redirect '/vegetables'
+     end
+   end
 end

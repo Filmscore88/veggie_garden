@@ -47,7 +47,7 @@ tr:nth-child(even) {
       <a href="/gardens/<%=@garden.id%>/edit">Edit</a>
       <form method="post" action="/gardens/<%= @garden.id %>/delete">
         <input id="hidden" type="hidden" name="_method" value="DELETE">
-        <input type="submit" value= "delete">
+        <button type="submit" class="btn btn-link" onclick="if (!confirm('ANY VEGETABLES IN THIS GARDEN WILL BE DELETED!')) { return false }"><span>Delete</span></button>
       </form>
     <%end%>
 </body>

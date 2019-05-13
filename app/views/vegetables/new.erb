@@ -1,6 +1,6 @@
 <%="Please make sure all fields are entered correctly." if @vegetalbe && @vegetalbe.errors.any?%>
 <h1>Choose Your Vegetables</h1>
-
+<%=@invalid_entry%>
 
 <form action= "/vegetables" method="post">
   <label>Choose Your Vegetables</label>
@@ -45,7 +45,7 @@
     <li><input type="radio" name="name" value="kale">Kale</li>
   </ul>
   <label>Please Select Quantity:</label>
-    <input type= "text" name="quantity">
+    <input type= "number" name="quantity">
   <label> Choose Garden Location</label>
     <select name="garden_id">
       <% @gardens.each do |garden| %>

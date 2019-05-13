@@ -42,8 +42,10 @@ class GardensController < ApplicationController
 
   delete '/gardens/:id/delete' do
     login_confirmation
+    @vegetables=Vegetable.all
     @garden=Garden.find(params[:id])
-    @garden.delete
+    @garden.vegetables.destroy_all
+    @garden.destroy
     redirect '/gardens'
   end
 
