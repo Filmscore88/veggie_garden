@@ -19,15 +19,18 @@ class FarmersController < ApplicationController
   get '/login' do
     if !session[:farmer_id]
       erb :'farmers/login'
-    else
+    elsif
       redirect '/gardens'
     end
   end
 
   post '/login' do
-    login(params[:username], params[:password])
-    redirect '/gardens'
+   if login(params[:username], params[:password])
+     redirect '/gardens'
+   else
+     redirect '/signup? error=entry does not exist'
   end
+end
 
   get '/farmers/:id' do
     if !logged_in?
