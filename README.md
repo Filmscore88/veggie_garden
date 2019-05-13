@@ -1,7 +1,9 @@
-# make sure input type in quantity for vegetables is only a number
 # I have a banner across current_user for every page with logout/homepage(gardens)/create new garden/create new vegetables etc>
 # FIX garden show page, when no vegetables at the moment does not show edit/delete
 # gardens edit page should have link to add vegetables/new
+# validate entries
+# add farmer name in certain show pages
+# adjust edit delete alingment 
 # Home Page:
 #    If logged in:
 #    <% if logged_in? %>

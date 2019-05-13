@@ -20,12 +20,14 @@ tr:nth-child(even) {
 </head>
 <body>
 
-  <h2><%=@garden.name.titleize%> Garden</h2>
-  <h3><%=@garden.planting_system.titleize%> Planting System</h3>
+  <h3>Name: <%=@garden.name.titleize%></h3>
+  <h3>Planting System: <%=@garden.planting_system.titleize%></h3>
+  <h3>Farmer: <%=@garden.farmer.username.titleize%></h3>
 
   <% if @garden.vegetables.empty? %>
-    <h3> <%=@garden.name%> does not have any vegetables at the moment.</h3>
-  <%else%>
+    <h3> <%=@garden.name.titleize%> does not have any vegetables at the moment.</h3>
+
+  <%else %>
     <h3>Vegetables</h3>
     <table>
       <tr>
