@@ -1,10 +1,15 @@
 
-<h2>My Gardens</h2>
-<% if current_user.gardens.empty?%>
-  You do not have any gardens in your collection.
-<%end%>
-<ul>
-  <%@farmer.gardens.each do |garden| %>
-    <li><a href="/gardens/<%=garden.id%>"><%= garden.name.titleize %></a></li>
+  <h2>My Gardens</h2>
+  <% if current_user.gardens.empty?%>
+    You do not have any gardens at the moment.<a href= "/gardens/new"> New Garden.</a>
   <%end%>
-</ul>
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <%@farmer.gardens.each do |garden|%>
+  <tr>
+    <td> <h3> <a href= "/gardens/<%=garden.id%>"><%=garden.name.titleize%></a> </h3></td>
+  <%end%>
+  </tr>
+</table>
